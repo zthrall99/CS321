@@ -1,0 +1,20 @@
+Q1. The fundamental differences between the UNIX fork() and Windows CreateProcess() functions are: 1) fork() takes no parameters whereas CreateProcess() takes
+ten parameters, and 2) the fork() process has the same address as the parent function whereas CreateProcess() needs the address declared beforehand.
+
+Q2. UNIX systems manage orphan processes by assigning the orphan process to the init process (or systemd). The init process will periodically invoke wait()
+which will allow the orphan process to exit. 
+
+Q3. Google Chrome uses multiple processes in order to split up tasks and allocate resources to different functions to speed up the browser. For example, 
+Chrome uses 3 different processes where one is for the browser (UI and IO), one for the renderer (web pages, HTML, Javascript, etc.), and one for plug-ins 
+(Flash, QuickTime, etc.). Each tab opened utilizes a separate process as well. 
+
+Q4. I would say it is not possible to eliminate context switch time entirely (assuming we are using an interrupt based architecture) due to the fact that
+all actions will take some amount of time (microseconds in the case of context switches) and nothing truly happens instantaneously in a PC. 
+
+Q5. Mailboxes are more flexible for a number of reasons. Links may be associated with many processes which allows for greater and more efficient
+communication rather than direct links which can only communicate through links where only 2 processes can communicate at a time. Not only that, 
+process pairs are also able to share several communication links at once further adding flexibility to the system. 
+
+Q6.
+	1	$ fork()		used to create a child process
+	2	$ execlp("/bin/ls")	used to load and run process
