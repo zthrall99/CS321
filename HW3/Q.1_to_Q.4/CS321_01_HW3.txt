@@ -1,0 +1,35 @@
+Q1. One condition would be in a single core/single cpu computer. Since there are not extra available cores and resources
+to pull from the task getting completed would switching betweens threads too often thus making the task slower than in 
+a single threaded solution.
+
+Q2. The phenomenon can be explained easiest by looking at the graph given for amdahls law in section 4.3. The potential speedup
+for a given application begins to climb as the number of cores increases, but eventually that speedup converges with diminishing
+returns to "X" value no matter how many cores are added. This is because the serial portion cannot be sped up like the parallel 
+portion so the serial value will heavily determine how much speedup is possible. For example, if you you have 2 systems where
+System A has 33% serial/67% parallel and System B has 3% serial and 97% parallel then as we increase the number of cores the 
+convergence to 1/S will be obvious. 
+	
+				# of cores 	|	speedup
+	System A		2		|	150%
+					6		|	226%
+					18		|	272%
+					54		|	292%
+					162		|	299%
+	_________________________________________					
+	System B		2		|	194%
+					6		|	521%
+					18		|	1192%
+					54		|	2085%
+					162		|	2779%
+					
+As can be seen in the example above, System A is beginning to converge on 300% speedup which is almost identical to the 1/S value
+of 3.03 (repeating). The same is happening for System B, but the serial portion is so low that the potential speedup is much higher 
+and we simply have not put enough cores in the table to see the covergence point (it would be around 3333%).
+
+Q3. The performances would not vary at all and would would be nearly identical. This is because the many to one multithreading
+model only allows for one thread to access the kernel at a time which effectively turns the multi core system into a single
+core system too. 
+
+Q4. The synchronous thread craetion strategy was implemented for this problem, because the parent process needs to wait for the 
+children processes to finish their parts of the summation before joining with the parent which will combine the results and output
+the final value. 
