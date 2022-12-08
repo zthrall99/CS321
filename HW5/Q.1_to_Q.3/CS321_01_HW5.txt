@@ -1,0 +1,25 @@
+Q1. Static linking pros:
+		-no runtime dependencies as entire app is stored together
+		-fast load times
+	Static linking cons:
+		-must keep an entire copy in storage
+		-may waste main memory
+		-larger executable file size
+		
+	Dynamic linking pros:
+		-saves space
+		-flexibility to run many programs with different library versions (as described in section 9.2 in zyBooks)
+	Dynamic linking cons:
+		-may fail if the DLL isn't present at loading time
+		-requires help from operating system (resources)
+		-vulnerable to cyberattacks
+
+Q2. (see written work screenshot)
+
+Q3. Paging eliminates external fragmentation as any free frame can be allocated to a process that needs it. There 
+can still be internal fragmentation, however, due to pages that may not be completely full after a process has 
+been placed in memory. For example, given the 1024 byte memory total as well as the 32 byte page size from the 
+prompt, a process of 1000 bytes would require the entire memory of 32 pages of 32 bytes (32x32=1024) but there
+would still be an unused portion of 24 bytes in the 32nd page of memory thus resulting in internal fragmentation
+of 24 bytes.  
+
